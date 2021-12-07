@@ -44,24 +44,28 @@ namespace Cursovaya
 
         private void scrollSpeedParticles_Scroll(object sender, EventArgs e)
         {
-            int maxIntervalTimer = 400;                                   //Максимальная скорость замедлени(таймер)
-            int minIntervalTimer = maxIntervalTimer / trackBar1.Maximum;  //Минимальная скорость таймера
+            if(trackBar1.Value>0)
+                emitter.speedScroller = (float)(trackBar1.Value) / 10;
+            else
+                emitter.speedScroller = 1f / 10*2;
+            //int maxIntervalTimer = 400;                                   //Максимальная скорость замедлени(таймер)
+            //int minIntervalTimer = maxIntervalTimer / trackBar1.Maximum;  //Минимальная скорость таймера
 
-            if (trackBar1.Value < trackBar1.Maximum)
-            {
-                timer1.Interval = maxIntervalTimer - minIntervalTimer * trackBar1.Value;
-            }
-            else if (trackBar1.Value == trackBar1.Maximum) //Interval у таймера не может бытть равен 0, поэтому устанавливаем скорость вручную
-                timer1.Interval = 40;
+            //if (trackBar1.Value < trackBar1.Maximum)
+            //{
+            //    timer1.Interval = maxIntervalTimer - minIntervalTimer * trackBar1.Value;
+            //}
+            //else if (trackBar1.Value == trackBar1.Maximum) //Interval у таймера не может бытть равен 0, поэтому устанавливаем скорость вручную
+            //    timer1.Interval = 40;
         }
 
         private void Stop_Click(object sender, EventArgs e) //По нажатию клавиши "Стоп"
         {
             pause = pause?false:true;                             //Если стояло на паузе, о включаем и наоборот
 
-            trackBar1.Value = 0;
-            timer1.Interval = 40;
-            trackBar1.Enabled = trackBar1.Enabled ? false : true; //Ести скроллер скорости вкллючен, то выкл и наоборот
+            //trackBar1.Value = trackBar1.Maximum;
+            //timer1.Interval = 40;
+            trackBar1.Enabled = pause ? false : true; //Ести скроллер скорости вкллючен, то выкл и наоборот
         }
 
         private void Step_Click(object sender, EventArgs e) //По нажатию клавиши Шаг
@@ -79,6 +83,20 @@ namespace Cursovaya
         private void picDisplay_MouseLeave(object sender, EventArgs e)
         {
             emitter.positionMouse = new Point(-1, -1);
+        }
+
+        private void picDisplay_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                CircleCollector circleCollector = new CircleCollector(e.X, e.Y);
+                if(emitter.circleCollectors.Count<5)
+                     emitter.circleCollectors.Add(circleCollector);
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                emitter.deleteCollector(e.X,e.Y);
+            }
         }
     }
 }
