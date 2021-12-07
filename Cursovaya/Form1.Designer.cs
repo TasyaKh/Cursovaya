@@ -47,6 +47,7 @@ namespace Cursovaya
             this.picDisplay.Size = new System.Drawing.Size(726, 406);
             this.picDisplay.TabIndex = 0;
             this.picDisplay.TabStop = false;
+            this.picDisplay.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseClick);
             this.picDisplay.MouseLeave += new System.EventHandler(this.picDisplay_MouseLeave);
             this.picDisplay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDisplay_MouseMove);
             // 
