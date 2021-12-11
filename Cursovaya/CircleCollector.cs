@@ -1,38 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cursovaya
 {
     class CircleCollector:Circle
     {
-        public int countHit;
+        public int countHit;  //Счетчик числа попаданий
         public CircleCollector(int mouseX, int mouseY)
         {
             countHit = 0;
 
             X = mouseX;
             Y = mouseY;
-            radius = 20; 
+            radius = 20;
 
-            clr = Color.FromArgb(0,Color.Yellow);
+            clr = createNewColor();//Color.FromArgb(0,Color.Yellow);
+        }
+        private Color createNewColor()
+        {
+            int r = 255* rand.Next(2); 
+            int g = 255 * rand.Next(2);
+            int b = 255 * rand.Next(2);
+
+            if (r == g && g == b)
+                r = (r == 255)?0:255;   //По умолчанию пусть красный будет доминировать (чтобы белого и черного цвета не было)
+
+            return Color.FromArgb(r, g, b);
         }
 
         public override void Draw(Graphics g)
         {
-            var k = Math.Min(1f,(float)countHit / 500);
-            int alpha = (int)(k * 255);         //Умножить это знаечние на 255
+            var k = Math.Min(1f,(float)countHit / 100); //Яркость цвета (0;1)
+            int alpha = (int)(k * 255);                //Умножить это знаечние на 255
 
-            clr = Color.FromArgb(alpha, Color.Yellow);
+            //clr = Color.FromArgb(alpha, Color.Yellow);
 
             var b = new SolidBrush(clr);
             g.FillEllipse(b, X - radius, Y - radius, radius * 2, radius * 2);
-            g.DrawEllipse(new Pen(Color.FromArgb(255, 0, 0), 4), X - radius, Y - radius, radius * 2, radius * 2);
+            g.DrawEllipse(new Pen(Color.White, 2), X - radius, Y - radius, radius * 2, radius * 2);
 
-            b = new SolidBrush(Color.White);
+            b = new SolidBrush(Color.Black);
             g.DrawString(Convert.ToString(countHit), new Font("Times New Roman", 12), b, X-radius/2 , Y-radius / 2);
             b.Dispose();
         }
