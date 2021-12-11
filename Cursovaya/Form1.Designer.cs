@@ -64,7 +64,6 @@ namespace Cursovaya
             this.richTextBox1.Size = new System.Drawing.Size(180, 202);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
-            this.richTextBox1.Visible = false;
             // 
             // trackBar1
             // 

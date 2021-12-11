@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="CircleCollector.cs" />
-    <Compile Include="ColorfulCircle.cs" />
     <Compile Include="typesIntersects.cs" />
     <Compile Include="Emitter.cs" />
     <Compile Include="Form1.cs">
