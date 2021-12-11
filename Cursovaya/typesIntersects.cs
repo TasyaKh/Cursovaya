@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-//using System.Drawing.Drawing2D;
 
 namespace Cursovaya
 {
     class typesIntersects
     {
-      public static bool circlesOverlap(Circle one,Circle two)
+      public static bool circlesOverlap(Circle one,Circle two) //Для проверки пересечения двух кругов
         {
-            bool intersects = false;
+            bool intersects = false;                           //Пересечклись или нет
 
-            var d = Math.Sqrt(Math.Pow(one.X- two.X,2) + Math.Pow(one.Y - two.Y, 2)); //расстояниме между двумя окружностями
+            var d = Math.Sqrt(Math.Pow(one.X- two.X,2) + Math.Pow(one.Y - two.Y, 2));//расстояниме между двумя окружностями
 
-            if (d <= one.radius + two.radius)
+            if (d <= one.radius + two.radius)                                        //Если это расстояние меньше чем сумма радиусов окружностей
             {
                 intersects = true;
             }
@@ -31,9 +30,9 @@ namespace Cursovaya
 
             var length = Math.Sqrt(Math.Pow(startCoordsX, 2) + Math.Pow(startCoordsY, 2)); //Расстояние от точки мыши до начала координат
 
-            if (length <= circle.radius)
+            if (length <= circle.radius) //если расстояние от положения мыши до круга меньше или равно радиусу круга
             {
-                intersect = true;
+                intersect = true;       //тогда говорим, сто мы пересеклись мышью с кругом
             }
             return intersect;
         }

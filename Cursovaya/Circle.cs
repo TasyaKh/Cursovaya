@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cursovaya
 {
     abstract class Circle
     {
-        public int radius;
-        public float X;
-        public float Y;
+        public int radius; //Радиус круга
+        public float X;    //Координата по оси х
+        public float Y;    //Координата по оси у
 
         public static Random rand = new Random();
-        public Color clr;
+        public Color clr;  //Цвет круга
 
         public Circle()
         {
@@ -23,6 +19,6 @@ namespace Cursovaya
             clr = Color.White;
         }
 
-        public abstract void Draw(Graphics g);
+        public abstract void Draw(Graphics g); //Для создания фигуры
     }
 }
