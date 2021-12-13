@@ -25,5 +25,21 @@ namespace Cursovaya
             countHit = 0;
             b.Dispose();
         }
+        public void positionChange(float mouseX,float mouseY)
+        {
+            X = mouseX;
+            Y = mouseY;
+        }
+        public void resize(bool less) //Изменить размер радара
+        {
+            if (radius > 30 && less) //Если уменьшить, то
+            {
+                radius--;
+            }
+            else if (radius < 60 && !less) //Если увеличить, то
+            {
+                radius++;
+            }
+        }
     }
 }
