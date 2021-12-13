@@ -36,6 +36,9 @@ namespace Cursovaya
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.Stop = new System.Windows.Forms.Button();
             this.Step = new System.Windows.Forms.Button();
+            this.switchOnInfo = new System.Windows.Forms.RadioButton();
+            this.switchOnRealm = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +77,7 @@ namespace Cursovaya
             this.trackBar1.TabIndex = 2;
             this.trackBar1.Value = 10;
             this.trackBar1.Scroll += new System.EventHandler(this.scrollSpeedParticles_Scroll);
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // Stop
             // 
@@ -95,16 +99,53 @@ namespace Cursovaya
             this.Step.UseVisualStyleBackColor = true;
             this.Step.Click += new System.EventHandler(this.Step_Click);
             // 
+            // switchOnInfo
+            // 
+            this.switchOnInfo.AutoSize = true;
+            this.switchOnInfo.Checked = true;
+            this.switchOnInfo.Location = new System.Drawing.Point(445, 454);
+            this.switchOnInfo.Name = "switchOnInfo";
+            this.switchOnInfo.Size = new System.Drawing.Size(88, 21);
+            this.switchOnInfo.TabIndex = 5;
+            this.switchOnInfo.TabStop = true;
+            this.switchOnInfo.Text = "watchInfo";
+            this.switchOnInfo.UseVisualStyleBackColor = true;
+            this.switchOnInfo.CheckedChanged += new System.EventHandler(this.switchOnInfo_CheckedChanged);
+            // 
+            // switchOnRealm
+            // 
+            this.switchOnRealm.AutoSize = true;
+            this.switchOnRealm.Location = new System.Drawing.Point(558, 454);
+            this.switchOnRealm.Name = "switchOnRealm";
+            this.switchOnRealm.Size = new System.Drawing.Size(105, 21);
+            this.switchOnRealm.TabIndex = 6;
+            this.switchOnRealm.Text = "watchRealm";
+            this.switchOnRealm.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(399, 470);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 496);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.switchOnRealm);
+            this.Controls.Add(this.switchOnInfo);
             this.Controls.Add(this.Step);
             this.Controls.Add(this.Stop);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.picDisplay);
+            this.MaximumSize = new System.Drawing.Size(826, 543);
+            this.MinimumSize = new System.Drawing.Size(826, 543);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
@@ -122,6 +163,9 @@ namespace Cursovaya
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button Stop;
         private System.Windows.Forms.Button Step;
+        private System.Windows.Forms.RadioButton switchOnInfo;
+        private System.Windows.Forms.RadioButton switchOnRealm;
+        private System.Windows.Forms.Label label1;
     }
 }
 
