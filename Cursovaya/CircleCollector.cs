@@ -6,8 +6,10 @@ namespace Cursovaya
     class CircleCollector:Circle
     {
         public int countHit;  //Счетчик числа попаданий
+        private int maxCountHit;
         public CircleCollector(int mouseX, int mouseY)
         {
+            maxCountHit = 100;
             countHit = 0;
 
             X = mouseX;
@@ -15,6 +17,10 @@ namespace Cursovaya
             radius = 20;
 
             clr = createNewColor();//Color.FromArgb(0,Color.Yellow);
+        }
+        public int getMaxCountHit()
+        {
+            return maxCountHit;
         }
         private Color createNewColor()
         {
