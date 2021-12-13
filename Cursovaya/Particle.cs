@@ -14,7 +14,7 @@ namespace Cursovaya
         public float life; //Количество жизней
         private float maxLife;//Количество жизней max
 
-        public bool switchUnderColor;
+        public bool switchUnderColor; //создать надцвет, времменное состояние частицы, если какой то объект воздейтсвует
         public Particle()
         {
            
@@ -53,7 +53,7 @@ namespace Cursovaya
 
             if (!switchUnderColor) //Если подцвет выключен
             {    //если не воздействует радар то норм цвет ставим
-                float k = Math.Min(1f, life / 200); //Найти минимальное занчение среди текущей жизни и 1
+                float k = Math.Min(1f, life / maxLife); //Найти минимальное занчение среди текущей жизни и 1
                 int alpha = (int)(k * 255);         //Умножить это знаечние на 255
 
                 color = Color.FromArgb(alpha, clr);

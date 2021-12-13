@@ -49,6 +49,7 @@
     <Compile Include="Circle.cs" />
     <Compile Include="CircleCollector.cs" />
     <Compile Include="ColorfulCircle.cs" />
+    <Compile Include="ManagerOtherObjects.cs" />
     <Compile Include="Radar.cs" />
     <Compile Include="typesIntersects.cs" />
     <Compile Include="Emitter.cs" />

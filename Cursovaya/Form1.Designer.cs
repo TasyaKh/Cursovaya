@@ -147,7 +147,7 @@ namespace Cursovaya
             this.MaximumSize = new System.Drawing.Size(826, 543);
             this.MinimumSize = new System.Drawing.Size(826, 543);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Курсовая (частицы)";
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);

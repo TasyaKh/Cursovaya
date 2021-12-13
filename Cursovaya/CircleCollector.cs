@@ -38,14 +38,14 @@ namespace Cursovaya
         {
             var k = Math.Min(1f,(float)countHit / 100); //Яркость цвета (0;1)
             int alpha = (int)(k * 255);                //Умножить это знаечние на 255
-
+            Color colorBright = Color.FromArgb(alpha, clr.R, clr.G, clr.B);
             //clr = Color.FromArgb(alpha, Color.Yellow);
 
-            var b = new SolidBrush(clr);
+            var b = new SolidBrush(colorBright);
             g.FillEllipse(b, X - radius, Y - radius, radius * 2, radius * 2);
             g.DrawEllipse(new Pen(Color.White, 2), X - radius, Y - radius, radius * 2, radius * 2);
 
-            b = new SolidBrush(Color.Black);
+            b = new SolidBrush(Color.White);
             g.DrawString(Convert.ToString(countHit), new Font("Times New Roman", 12), b, X-radius/2 , Y-radius / 2);
             b.Dispose();
         }
